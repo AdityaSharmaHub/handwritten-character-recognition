@@ -7,16 +7,14 @@ from sklearn.utils import shuffle
 from keras.models import Sequential
 from keras.layers import Dense, Flatten, Conv2D, MaxPool2D, Dropout
 from keras.optimizers import SGD, Adam
-# from tensorflow.keras.optimizers import SGD, Adam
 from keras import optimizers
 from keras.callbacks import ReduceLROnPlateau, EarlyStopping
 from keras.utils import to_categorical
-# from keras.utils.np_utils import to_categorical
 
 plt.rcParams['figure.figsize'] = [8, 6]  # Change the size as needed
 plt.rcParams['font.family'] = 'sans-serif'
 
-my_data = pd.read_csv('./input/A_Z Handwritten Data.csv').astype('float32')
+my_data = pd.read_csv('./dataset/A_Z Handwritten Data.csv').astype('float32')
 my_data.head()
 
 my_frame = pd.DataFrame(my_data)
@@ -158,7 +156,7 @@ history = my_model.fit(x_train, categorical_train, epochs = 1, validation_data =
 # also we save the model using model.save() function.
 
 my_model.summary()
-my_model.save(r'model_hand.h5')
+my_model.save(r'./model/character_model.keras')
 
 # we print out the training & validation accuracies along with the training & validation losses for character recognition.
 
